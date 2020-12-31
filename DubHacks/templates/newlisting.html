@@ -1,0 +1,89 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Login
+{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+{% endblock %}
+
+{% block nav %}
+  <nav class="navbar navbar-expand-lg navbar-light color navsize">
+		<a class="navbar-brand" href="{{ url_for('home') }}"><img src="https://sxobcw.ch.files.1drv.com/y4mbIervt2JsmAjJD4eGBfHPu4ELT8t0Hp28hPMVNrjEB4J84mEl7LfgquTz_Rynbp1I4yLjKHLCJD4rQyP5NdRhMfV-m1y0rg0ileT5jFpWE5xONbrG1jO8B_S4E8IBoPOSKWIIn9FjlBe_yaiLOM-OKsC81GfElYizdga0vRWOXBtxW7EQCpNY-JaCrbTqDVPQmk21almeh7vJA8cUZCZpw?&cropmode=none" width="27%"/></a>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item linksize" href="{{ url_for('viewListing', user=user) }}">BOOKS</a>
+          <a class="nav-item linksize" href="{{ url_for('newlisting', user=user) }}">SELL</a>
+          <a class="nav-item linksize" href="{{ url_for('viewChat', user=user) }}">CHATS</a>
+          <a class="nav-item linksize" href="{{ url_for('about', user=user) }}">ABOUT</a>
+          <a class="nav-item linksize" href="{{ url_for('logout') }}">LOGOUT</a>
+        </div>
+      </div>
+    </nav>
+{% endblock %}
+
+{% block body %}
+<br> <h6>You are logged on as: <strong> {{ user }}</strong> </h6> 
+<form action="{{ url_for('newlisting', user=user) }}" class="mb-5 pb-5 container" method="POST">
+    <h1>Create a New Post </h1>
+    <div class="form-group">
+        <label for="photo">Enter url for photo</label>
+        <input type="url" class="form-control" name="photo" id="photo" placeholder="url for the picture of a book">
+    </div>
+    <div class="form-group">
+        <label for="name">Name of the book</label>
+        <input required type="text" class="form-control" name="name" id="name" placeholder="name of the book">
+    </div>
+    </div>
+    </div>
+    <div class="form-group">
+        <label for="category">Select category</label>
+        <select class="form-control" id="category" name="category">
+            <option disabled selected>--Select a category--</option>
+            <option value="Textbook">Textbook</option>
+            <option value="Review book">Review book</option>
+            <option value="Detailed Notes">Detailed Notes</option>
+            <option value="Workbook">Workbook</option>
+            <option value="literary text">Literary Text</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="condition">Select condition of the book</label>
+        <select class="form-control" id="condition" name="condition">
+            <option disabled selected>--Select a condition--</option>
+            <option value="New/Hardly used">New/Hardly used</option>
+            <option value="Used">Used - some markings</option>
+            <option value="very used">Very used - Lots of markings</option>
+            <option value="Some pages are lose">Some pages are lose</option>
+            <option value="other">Other</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="type">Select format of the book</label>
+        <select class="form-control" id="type" name="type">
+            <option disabled selected>--Select a book format--</option>
+            <option value="Physical book">Physical Book</option>
+            <option value="E-book">E-book (pdf, word, etc.)</option>
+            <option value="Audiobook">Audiobook</option>
+            <option value="Loose leaf Physical book">Loose leaf physical book</option>
+            <option value="other">Other</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="classes">Classes this will be useful for</label>
+        <input required type="text" class="form-control" name="classes" id="classes" placeholder="MATH126, PHYS122..">
+    </div>
+    <label for="price">Price</label>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">$</span>
+      </div>
+      <input type="number" step="any" class="form-control" placeholder="price" aria-label="Username" aria-describedby="basic-addon1">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}
+ <div class="footer">
+  <p>Have Questions or Comments? Contact us: <a href="mailto:bookbounce@outlook.com" style="color:#000000;"><span style="color: rgb(255, 255, 255);"><i class="fas fa-envelope fa-lg"></i></span></a></p>
+  </div>

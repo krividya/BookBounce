@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Chat Room
+{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+{% endblock %}
+
+{% block nav %}
+  <nav class="navbar navbar-expand-lg navbar-light color navsize">
+		<a class="navbar-brand" href="{{ url_for('home') }}"><img src="https://sxobcw.ch.files.1drv.com/y4mbIervt2JsmAjJD4eGBfHPu4ELT8t0Hp28hPMVNrjEB4J84mEl7LfgquTz_Rynbp1I4yLjKHLCJD4rQyP5NdRhMfV-m1y0rg0ileT5jFpWE5xONbrG1jO8B_S4E8IBoPOSKWIIn9FjlBe_yaiLOM-OKsC81GfElYizdga0vRWOXBtxW7EQCpNY-JaCrbTqDVPQmk21almeh7vJA8cUZCZpw?&cropmode=none" width="27%"/></a>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item linksize" href="{{ url_for('viewListing', user=user) }}">BOOKS</a>
+          <a class="nav-item linksize" href="{{ url_for('newlisting', user=user) }}">SELL</a>
+          <a class="nav-item linksize" href="{{ url_for('viewChat', user=user) }}">CHATS</a>
+          <a class="nav-item linksize" href="{{ url_for('about', user=user) }}">ABOUT</a>
+          <a class="nav-item linksize" href="{{ url_for('logout') }}">LOGOUT</a>
+        </div>
+      </div>
+    </nav>
+{% endblock %}
+
+{% block body %} <br>
+<div class = "container row">
+<section class = "col-7">
+  &nbsp; &nbsp; {{ user }} speaking with {{ user2 }}
+  {% for m in messages %}
+  {% if m["user_from"] == user and m["user_to"] == user2 %}
+  <div class="speech-bubble_you"><i class="fas fa-reply"></i>
+  <strong>You: </strong>{{ m["message"] }}
+  </div>
+  {% elif m["user_to"] == user and m["user_from"] == user2 %}
+  <div class="speech-bubble"><i class="fas fa-reply fa-rotate-180"></i>
+  <strong>{{ user2 }}: </strong>{{ m["message"] }}
+  </div>
+  {% endif %}
+  {% endfor %}
+</section>
+<article class="col-5 mt-5">
+  <form class="form-group" action="{{ url_for('chat2', user=user, user2=user2) }}" method="POST">
+    <div class="form-group">
+    <input class="form-control" name="message" id="message" type="text" placeholder="Enter your message">
+    </div>
+    <button class="btn btn-primary col-3" type="submit"> Send </button>     
+  </form>
+</article>
+</div>
+{% endblock %}

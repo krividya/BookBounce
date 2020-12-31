@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>{% block title %} {% endblock %}</title>
+	<link href="static/style.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	 crossorigin="anonymous">
+  
+  <link rel="stylesheet" type="text/css" href="testing.css">
+	<link rel="stylesheet" type="text/css" href="css/all.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no">
+	{% block head %}
+
+  {% endblock %}
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap');
+		.color {
+			background-color: #5cb4e3
+		}
+
+		.logo {
+			padding-bottom: 5px;
+      float: left;
+			margin-left:80%;
+			margin-right: 30%;
+			padding-top: 8px;
+      padding-left: 400px;
+      padding-right: 0px;
+		}
+
+		.navsize {
+			height: 60px;
+			width: 100%;
+      margin-right: 0; 
+      margin-left: 0; 
+			/* white-space: nowrap;
+			padding-left: 0;
+			padding-top: 10px;
+			padding-right: 0px;
+			padding-bottom: 0px;
+			margin: 0px; */
+		}
+
+		.linksize {
+			float: left;
+			margin-left: 0px;
+			font-family: 'Lato', sans-serif;
+			font-size: 17px;
+			margin-right: 50px;
+			margin-top: 10px;
+			color: white;
+			padding-right: 5px;
+      margin-bottom: 10px;
+      padding-left: 20px;
+      padding-top: 5px;
+      		}
+
+		.linksize:hover {
+			color: rgb(0,0,0);
+      text-decoration: none;
+		}
+
+		.footer {
+			position: fixed;
+			left: 0;
+			bottom: 0;
+			width: 100%;
+			background-color: #329d9c;
+			color: white;
+			text-align: center;
+			padding-top: 10px;
+		}
+
+		.speech-bubble {
+			position: relative;
+			background: #189DE4;
+			border-radius: .4em;
+			color: rgb(255, 255, 255);
+			margin: 10px;
+			padding-left: 10px;
+		}
+
+		.speech-bubble_you {
+			position: relative;
+			background: #818BD1;
+			border-radius: .4em;
+			color: rgb(255, 255, 255);
+			margin: 10px;
+			padding-left: 10px;
+		}
+    body { 
+      font-family: 'Trebuchet MS';
+    }
+     h6 {
+      padding-left: 80%;
+      font-size: 17px; 
+    } 
+	</style>
+</head>
+<body>
+  {% block nav %}
+	<nav class="navbar navbar-expand-lg navbar-light color navsize">
+		<a class="navbar-brand" href="{{ url_for('home') }}"><img src="https://sxobcw.ch.files.1drv.com/y4mbIervt2JsmAjJD4eGBfHPu4ELT8t0Hp28hPMVNrjEB4J84mEl7LfgquTz_Rynbp1I4yLjKHLCJD4rQyP5NdRhMfV-m1y0rg0ileT5jFpWE5xONbrG1jO8B_S4E8IBoPOSKWIIn9FjlBe_yaiLOM-OKsC81GfElYizdga0vRWOXBtxW7EQCpNY-JaCrbTqDVPQmk21almeh7vJA8cUZCZpw?&cropmode=none" width="18%"/></a>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item linksize" href="{{ url_for('home') }}">HOME</a>
+          <a class="nav-item linksize" href="{{ url_for('login') }}">LOGIN</a>
+          <a class="nav-item linksize" href="{{ url_for('register') }}">REGISTER</a>
+        </div>
+      </div>
+    </nav>
+  {% endblock %}
+  
+  
+  {% block body %}
+  <h1> <center>WELCOME TO BookBounce!</h1> <br>
+  <h3> <center> Our Website </h3>
+  <p> <center>  We are a website that offers a place where highschool and college students can find textbooks that they need for their classes. These textbooks are listed by other students who are willing to either loan them for free or sell them to the user. This depends on the person that lists the textbook on our website. The user will be able to chat with the person directly on the website and come to a decision together. The names of either people will not be shown on this website for privacy reasons. Only the username they choose when they sign up will be displayed. The user can also post the textbooks that they have on the website once they create an account. Hope you find our website useful for your studies! </p> <br>
+  <h3> <center> Our Inspiration </h3>
+<p> We were inspired to create this website because there are a lot of students who have books that are laying around and many of us don't know what to do with them or where to post about them so they can connect with other people that need them. Also, there are many students who don't want to spend so much money and are looking for resources where they can get the textbook at a cheap price or even for free. We thought by creating this website, it would make it easier for both sides as they know exactly where to look to either sell/loan their old textbooks or get textbooks at an afforable price. 
+</p>
+<p> <center> - <em> Kriti Vidya and Atharva Kashyap </em> </p> <br>
+<br>
+
+  {% endblock %}
+   <div class="footer">
+  <p>Have Questions or Comments? Contact us: <a href="mailto:bookbounce@outlook.com" style="color:#000000;"><span style="color: rgb(255, 255, 255);"><i class="fas fa-envelope fa-lg"></i></span></a></p>
+  </div>
+</body>
+</html>

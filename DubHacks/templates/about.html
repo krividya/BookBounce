@@ -1,0 +1,100 @@
+{% extends "layout.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+{% endblock %}
+
+<style>
+  .person {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1%;
+  width: 90%;
+  padding-top: 4.5%;
+}
+body { 
+  font-family: 'Trebuchet MS';
+}
+.characterNames {
+  margin-left: 47%;
+  width: 20%;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 5px;
+  background-color: white;
+  border: 3px solid white;
+  border-radius: 5px;
+}
+
+.about-section {
+  padding: 50px;
+  text-align: center;
+  background-color: #474e5d;
+  color: white;
+}
+
+.container1 {
+  padding: 0 16px;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+}
+
+.container1::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+  </style>
+
+{% block nav %}
+  <nav class="navbar navbar-expand-lg navbar-light color navsize">
+		<a class="navbar-brand" href="{{ url_for('home') }}"><img src="https://sxobcw.ch.files.1drv.com/y4mbIervt2JsmAjJD4eGBfHPu4ELT8t0Hp28hPMVNrjEB4J84mEl7LfgquTz_Rynbp1I4yLjKHLCJD4rQyP5NdRhMfV-m1y0rg0ileT5jFpWE5xONbrG1jO8B_S4E8IBoPOSKWIIn9FjlBe_yaiLOM-OKsC81GfElYizdga0vRWOXBtxW7EQCpNY-JaCrbTqDVPQmk21almeh7vJA8cUZCZpw?&cropmode=none" width="27%"/></a>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item linksize" href="{{ url_for('viewListing', user=user) }}">BOOKS</a>
+          <a class="nav-item linksize" href="{{ url_for('newlisting', user=user) }}">SELL</a>
+          <a class="nav-item linksize" href="{{ url_for('viewChat', user=user) }}">CHATS</a>
+          <a class="nav-item linksize" href="{{ url_for('about', user=user) }}">ABOUT</a>
+          <a class="nav-item linksize" href="{{ url_for('logout') }}">LOGOUT</a>
+        </div>
+      </div>
+    </nav>
+{% endblock %}
+
+{% block body %}
+<div class="container"> <br>
+  <h2> <center> Our Team</center></h2>
+  <div class="row">
+    <div class="card col m-3">
+      <img src="https://b05knq.bl.files.1drv.com/y4mNqmtpVaP1Qva-813v3ctyn56YHMMJrjMcorTaHYawB1GJ-P-rA09St9sM2C5KrNFOpDFsOAqZgzL1_hV88X29AJi4eIVPCm_KrJ6c6Q1MAqWTFtIGIjEQUrM6Fqs9-BHDnxQyd5_w1bj8CHw_iwCiPHX2TYGQ1MuKOr00AIOkIfrotjsEjC2f2XKuVSSysblAQovsnwYis-4Uki8_beEJA?width=400&height=400&cropmode=none" width="30%" alt="Kriti" class="person">
+      <div class="container1">
+        <h2 class="name">Kriti Vidya</h2>
+        <p class="title bio">Co-Founder</p>
+        <p class="bio">Kriti is a rising freshman at the University of Washington, where she is majoring in Computer Science. Her favorite subjects are Math and Computer Science. During her free time she likes to read, listen to music, and bake.</p>
+        <p class="bio"><i class="fab fa-linkedin-in fa-lg"></i> <a href="www.linkedin.com/in/kriti-vidya" target="_blank"> www.linkedin.com/in/kriti-vidya</a></p>
+        <p class="bio"><i class="fas fa-envelope fa-lg"></i><a href="mailto:kritividya@outlook.com" target="_blank" rel="noopener noreferrer"> kritividya@outlook.com</a></p><br>
+      </div>
+    </div>
+    <div class="card col m-3">
+      <img src="https://b06vka.bl.files.1drv.com/y4mPW2KcPzjkiRvpNGcQ-gMqUj_moTL81ME92EYqBwF7e7ds0A30u1adPRaW3ISCcUszURm3lQBBughJY2VRgDJsUH5B5gQ9v25sCl0Vw2YnUmdyCGDDUGSj94Ak32OwXld5RP8qbh6MB5vRKBlbv7bwa36-3TMg4lAKhRhYMr5UWyDxz8cQfgwDYJdU3wFbVY2k2hU-hyDY-m2GME7p8_P7w?width=400&height=400&cropmode=none" width="30%" alt="Atharva" class="person">
+      <div class="container1">
+        <h2 class="name">Atharva Kashyap</h2>
+        <p class="title bio">Co-Founder</p>
+        <p class="bio">Atharva is a rising freshman at the University of Washington, Seattle's College of Engineering. His favorite subjects are Math, Physics, and Computer Science. During his free time, he enjoys going on hikes, reading about novel technological innovations, and practice coding and CAD-ing.
+        </p>
+        <p class="bio"><i class="fab fa-linkedin-in fa-lg"></i> <a href="www.linkedin.com/in/atharva-kashyap" target="_blank"> www.linkedin.com/in/atharva-kashyap</a></p>
+        <p class="bio"><i class="fas fa-envelope fa-lg"></i><a href="mailto:atharva.kashyap@outlook.com" target="_blank" rel="noopener noreferrer"> atharva.kashyap@outlook.com</a></p><br>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+  
